@@ -1,0 +1,25 @@
+# Try Docker Compose File
+version: "3.8"
+services:
+    frontend:
+        build:
+          context: einkauf/einkauf # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+          dockerfile: Dockerfile
+         # args:
+         #  REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api
+        container_name: frontend
+        depends_on: 
+            - backend       
+        ports:
+          - "3000:3000" # Map the exposed port 80 on the container to port 9090 on the host machine
+        restart: always
+
+    backend:
+        build:
+          context: TestApp # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+          dockerfile: Dockerfile
+        container_name: backend
+        ports:
+          - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+        restart: always
+
