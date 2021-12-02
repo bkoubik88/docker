@@ -1,6 +1,0 @@
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Azure subscription 1(8cc07c1e-2ae9-4016-87db-cde7f7aa01ef)'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
